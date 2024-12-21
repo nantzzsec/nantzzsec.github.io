@@ -42,20 +42,55 @@ function downloadLaporan(filePath, fileName) {
 }
 
 //contact Whatsapp
-
 function sendWhatsApp() {
     var name = document.getElementById('full-name').value;
     var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;
     var subject = document.getElementById('subject').value;
     var message = document.getElementById('message').value;
-
     var messageText = encodeURIComponent("Hi, I'm " + name + ". \nEmail: " + email + "\nPhone: " + phone + "\nSubject: " + subject + "\nMessage: " + message);
-
     var phoneNumber = "6285896873540"; 
-
     var url = "https://wa.me/" + phoneNumber + "?text=" + messageText;
     window.open(url, "_blank");
 }
 
+
+// Tampilkan Popup CV
+const showCV = document.getElementById('showCV');
+const popup = document.getElementById('popup');
+const closeButton = document.getElementById('closeButton');
+
+showCV.addEventListener('click', (event) => {
+  event.preventDefault();
+  popup.style.display = 'flex';
+});
+
+closeButton.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === popup) {
+    popup.style.display = 'none';
+  }
+});
+
+
+
+// Umur
+const tanggalLahir = new Date(2003, 6, 24);
+const today = new Date();
+
+let umur = today.getFullYear() - tanggalLahir.getFullYear();
+
+const bulanSekarang = today.getMonth();
+const tanggalSekarang = today.getDate();
+const bulanLahir = tanggalLahir.getMonth();
+const tanggalLahirHari = tanggalLahir.getDate();
+
+if (bulanSekarang < bulanLahir || (bulanSekarang === bulanLahir && tanggalSekarang < tanggalLahirHari)) {
+  umur--;
+}
+
+document.getElementById("umur").textContent = umur;
 
