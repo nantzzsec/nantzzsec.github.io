@@ -1,0 +1,133 @@
+/* ============================================================
+   Cursor Particle Trail Effect
+   Portfolio — Cyber Security Theme
+   ============================================================ */
+
+/* Disable entirely on touch devices */
+@media (pointer: coarse) {
+  #cursor-particle-container {
+    display: none !important;
+  }
+}
+
+/* ---- Particle Container ---- */
+#cursor-particle-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;   /* Never block any clicks or interactions */
+  z-index: 9998;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ---- Individual Particle ---- */
+.cursor-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity, filter;
+  animation: cursor-particle-fade var(--particle-duration, 650ms) ease-out forwards;
+  /* Center on cursor position */
+  transform: translate(-50%, -50%) translate(0, 0) scale(1);
+}
+
+/* ---- Core Keyframe Animation ---- */
+@keyframes cursor-particle-fade {
+  0% {
+    opacity: var(--particle-opacity, 0.85);
+    transform: translate(-50%, -50%) translate(0px, 0px) scale(1);
+    filter: blur(0px);
+  }
+  30% {
+    opacity: calc(var(--particle-opacity, 0.85) * 0.7);
+    filter: blur(0.5px);
+  }
+  70% {
+    opacity: calc(var(--particle-opacity, 0.85) * 0.3);
+    filter: blur(1.5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx, 0px), var(--dy, 0px)) scale(0);
+    filter: blur(3px);
+  }
+}
+
+/* ---- Particle size variants ---- */
+.cursor-particle.p-sm { width: 3px;  height: 3px; }
+.cursor-particle.p-md { width: 5px;  height: 5px; }
+.cursor-particle.p-lg { width: 7px;  height: 7px; }
+
+/* ---- Theme: dark (cyan / neon blue) ---- */
+.cursor-particle.theme-dark.c-0 {
+  background: #00d4ff;
+  box-shadow: 0 0 6px 1px rgba(0, 212, 255, 0.8), 0 0 12px 2px rgba(0, 212, 255, 0.4);
+}
+.cursor-particle.theme-dark.c-1 {
+  background: #00a8ff;
+  box-shadow: 0 0 6px 1px rgba(0, 168, 255, 0.8), 0 0 12px 2px rgba(0, 168, 255, 0.4);
+}
+.cursor-particle.theme-dark.c-2 {
+  background: #00f5ff;
+  box-shadow: 0 0 6px 1px rgba(0, 245, 255, 0.7), 0 0 12px 2px rgba(0, 245, 255, 0.35);
+}
+.cursor-particle.theme-dark.c-3 {
+  background: #7b2fff;
+  box-shadow: 0 0 6px 1px rgba(123, 47, 255, 0.8), 0 0 12px 2px rgba(123, 47, 255, 0.4);
+}
+
+/* ---- Theme: blue (light cyan / electric blue) ---- */
+.cursor-particle.theme-blue.c-0 {
+  background: #38bdf8;
+  box-shadow: 0 0 6px 1px rgba(56, 189, 248, 0.8), 0 0 12px 2px rgba(56, 189, 248, 0.4);
+}
+.cursor-particle.theme-blue.c-1 {
+  background: #60a5fa;
+  box-shadow: 0 0 6px 1px rgba(96, 165, 250, 0.8), 0 0 12px 2px rgba(96, 165, 250, 0.4);
+}
+.cursor-particle.theme-blue.c-2 {
+  background: #22d3ee;
+  box-shadow: 0 0 6px 1px rgba(34, 211, 238, 0.7), 0 0 12px 2px rgba(34, 211, 238, 0.35);
+}
+.cursor-particle.theme-blue.c-3 {
+  background: #0ea5e9;
+  box-shadow: 0 0 6px 1px rgba(14, 165, 233, 0.8), 0 0 12px 2px rgba(14, 165, 233, 0.4);
+}
+
+/* ---- Theme: purple (violet / magenta soft) ---- */
+.cursor-particle.theme-purple.c-0 {
+  background: #a78bfa;
+  box-shadow: 0 0 6px 1px rgba(167, 139, 250, 0.8), 0 0 12px 2px rgba(167, 139, 250, 0.4);
+}
+.cursor-particle.theme-purple.c-1 {
+  background: #e879f9;
+  box-shadow: 0 0 6px 1px rgba(232, 121, 249, 0.8), 0 0 12px 2px rgba(232, 121, 249, 0.4);
+}
+.cursor-particle.theme-purple.c-2 {
+  background: #c084fc;
+  box-shadow: 0 0 6px 1px rgba(192, 132, 252, 0.7), 0 0 12px 2px rgba(192, 132, 252, 0.35);
+}
+.cursor-particle.theme-purple.c-3 {
+  background: #818cf8;
+  box-shadow: 0 0 6px 1px rgba(129, 140, 248, 0.8), 0 0 12px 2px rgba(129, 140, 248, 0.4);
+}
+
+/* ---- Theme: light (dark blue / teal — visible on lighter bg) ---- */
+.cursor-particle.theme-light.c-0 {
+  background: #0ea5e9;
+  box-shadow: 0 0 6px 1px rgba(14, 165, 233, 0.9), 0 0 12px 2px rgba(14, 165, 233, 0.5);
+}
+.cursor-particle.theme-light.c-1 {
+  background: #0d9488;
+  box-shadow: 0 0 6px 1px rgba(13, 148, 136, 0.9), 0 0 12px 2px rgba(13, 148, 136, 0.5);
+}
+.cursor-particle.theme-light.c-2 {
+  background: #1d4ed8;
+  box-shadow: 0 0 6px 1px rgba(29, 78, 216, 0.9), 0 0 12px 2px rgba(29, 78, 216, 0.5);
+}
+.cursor-particle.theme-light.c-3 {
+  background: #0891b2;
+  box-shadow: 0 0 6px 1px rgba(8, 145, 178, 0.9), 0 0 12px 2px rgba(8, 145, 178, 0.5);
+}
