@@ -444,7 +444,6 @@
     }
   });
 
-})();
 
   // ============================================================
   // Check Certificate: open verification URL in new tab
