@@ -1077,9 +1077,22 @@ a:hover {
   margin-bottom: 16px;
 }
 
+.cert-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.cert-actions .cert-link,
+.cert-actions .cert-check-link {
+  flex: 1;
+  min-width: 0;
+}
+
 .cert-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   font-size: 0.8rem;
   color: var(--cyan);
@@ -1088,11 +1101,33 @@ a:hover {
   padding: 6px 14px;
   border-radius: 6px;
   transition: var(--transition);
+  white-space: nowrap;
 }
 
 .cert-link:hover {
   background: rgba(0, 212, 255, 0.2);
   color: var(--cyan);
+}
+
+.cert-check-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cert-check-link:hover {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
 }
 
 /* ---- Cert body (padding wrapper) ---- */
