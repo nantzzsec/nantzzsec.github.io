@@ -445,3 +445,17 @@
   });
 
 })();
+
+  // ============================================================
+  // Check Certificate: open verification URL in new tab
+  // ============================================================
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.cert-check-link');
+    if (!btn) return;
+    const url = btn.dataset.certUrl;
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  });
+
+})();
